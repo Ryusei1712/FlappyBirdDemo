@@ -3,7 +3,6 @@ package com.demogiuaky.flappybird.sprites;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
-import java.awt.*;
 import java.util.Random;
 import com.badlogic.gdx.math.Rectangle;
 public class Tube {
@@ -16,7 +15,6 @@ public class Tube {
     private Vector2 positionTopTube, positionBotTube;
     private Random random;
     private Rectangle boundsTop, boundsBot;
-
     public Tube(float x){
         topTube = new Texture("sprites/topTube.png");
         botTube = new Texture("sprites/botTube.png");
@@ -27,6 +25,7 @@ public class Tube {
 
         boundsTop = new Rectangle((int) positionTopTube.x, (int) positionTopTube.y, topTube.getWidth(),topTube.getHeight());
         boundsBot = new Rectangle((int) positionBotTube.x, (int) positionBotTube.y, botTube.getWidth(),botTube.getHeight());
+
     }
 
     public Texture getTopTube() {

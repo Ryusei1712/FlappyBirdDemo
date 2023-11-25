@@ -10,7 +10,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.demogiuaky.flappybird.sprites.Bird;
 import com.demogiuaky.flappybird.sprites.Tube;
 
-import java.security.PrivateKey;
 
 import static com.demogiuaky.flappybird.FlappyBirdDemo.HEIGHT;
 import static com.demogiuaky.flappybird.FlappyBirdDemo.WIDTH;
