@@ -2,9 +2,13 @@ package com.demogiuaky.flappybird;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.demogiuaky.flappybird.states.GameStateManager;
+import com.demogiuaky.flappybird.states.MenuState;
 
 
 public class FlappyBirdDemo extends ApplicationAdapter {
@@ -12,44 +16,33 @@ public class FlappyBirdDemo extends ApplicationAdapter {
 	public static final int WIDTH = 480;
 	public static final int HEIGHT = 800;
 
-	SpriteBatch batch;
-	Texture backgroundTexture;
-	Texture messageTexture;
+	private GameStateManager gameStateManager;
 
+	private SpriteBatch batch;
+
+	private Music music;
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		backgroundTexture = new Texture("sprites/background-day.png");
-		messageTexture = new Texture("sprites/message.png");
+		gameStateManager = new GameStateManager();
+		music = Gdx.audio.newMusic(Gdx.files.internal("audio/backgroundMusic.mp3"));
+		music.setLooping(true);
+		music.setVolume(0.2f);
+		music.play();
 		ScreenUtils.clear(1, 0, 0, 1);
+		gameStateManager.push(new MenuState(gameStateManager));
 	}
 
 	@Override
 	public void render() {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-
-		// Draw background with scaling
-		batch.draw(backgroundTexture, 0, 0, WIDTH, HEIGHT);
-
-		// Calculate scaling factors for background
-		float backgroundScaleX = (float) Gdx.graphics.getWidth() / backgroundTexture.getWidth();
-
-        // Calculate position for message (centered)
-		float messageX = (WIDTH - messageTexture.getWidth() * backgroundScaleX) / 2;
-		float messageY = (HEIGHT - messageTexture.getHeight() * backgroundScaleX) / 2;
-
-		// Draw message on top of the background with scaling
-		batch.draw(messageTexture, messageX, messageY, messageTexture.getWidth() * backgroundScaleX, messageTexture.getHeight() * backgroundScaleX);
-
-		batch.end();
+		gameStateManager.update(Gdx.graphics.getDeltaTime());
+		gameStateManager.render(batch);
 	}
 
 	@Override
 	public void dispose() {
 		batch.dispose();
-		backgroundTexture.dispose();
-		messageTexture.dispose();
+		music.dispose();
 	}
 }
