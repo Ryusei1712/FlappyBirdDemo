@@ -14,8 +14,8 @@ public class MenuState extends State{
     private Texture messageTexture;
     public MenuState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        backgroundTexture = new Texture("sprites/background-day.png");
-        messageTexture = new Texture("sprites/message.png");
+        backgroundTexture = new Texture("assets/sprites/background-day.png");
+        messageTexture = new Texture("assets/sprites/message.png");
         orthographicCamera.setToOrtho(false, WIDTH/2,HEIGHT/2);
     }
 

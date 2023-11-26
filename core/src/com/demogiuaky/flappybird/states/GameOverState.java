@@ -18,8 +18,8 @@ public class GameOverState extends State{
 
     public GameOverState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        backgroundTexture = new Texture("sprites/background-day.png");
-        gameOverTexture = new Texture("sprites/gameover.png");
+        backgroundTexture = new Texture("assets/sprites/background-day.png");
+        gameOverTexture = new Texture("assets/sprites/gameover.png");
         orthographicCamera.setToOrtho(false, WIDTH,HEIGHT);
 
     }

@@ -27,8 +27,8 @@ public class PlayState extends State{
     public PlayState(GameStateManager gameStateManager) {
         super(gameStateManager);
         bird = new Bird(50,200);
-        backgroundTexture = new Texture("sprites/background-day.png");
-        ground = new Texture("sprites/base.png");
+        backgroundTexture = new Texture("assets/sprites/background-day.png");
+        ground = new Texture("assets/sprites/base.png");
         orthographicCamera.setToOrtho(false, WIDTH/2,HEIGHT/2);
 
         tubeArray = new Array<Tube>();

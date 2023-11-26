@@ -20,13 +20,13 @@ public class FlappyBirdDemo extends ApplicationAdapter {
 
 	private SpriteBatch batch;
 
-	private Music music;
+	public Music music;
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		gameStateManager = new GameStateManager();
-		music = Gdx.audio.newMusic(Gdx.files.internal("audio/backgroundMusic.mp3"));
+		music = Gdx.audio.newMusic(Gdx.files.internal("assets/audio/backgroundMusic.mp3"));
 		music.setLooping(true);
 		music.setVolume(0.2f);
 		music.play();

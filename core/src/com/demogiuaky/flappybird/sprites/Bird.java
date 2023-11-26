@@ -24,9 +24,9 @@ public class Bird {
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0, 0, 0);
         String[] birdTexturePaths = {
-                "sprites/yellowbird-upflap.png",
-                "sprites/yellowbird-midflap.png",
-                "sprites/yellowbird-downflap.png"
+                "assets/sprites/yellowbird-upflap.png",
+                "assets/sprites/yellowbird-midflap.png",
+                "assets/sprites/yellowbird-downflap.png"
         };
         birdTextures = new Texture[birdTexturePaths.length];
         for (int i = 0; i < birdTexturePaths.length; i++) {
@@ -35,7 +35,7 @@ public class Bird {
         currentFrame = 0;
         frameTime = 0;
         bounds = new Rectangle(x, y, birdTextures[0].getWidth(), birdTextures[0].getHeight());
-        wing = Gdx.audio.newSound(Gdx.files.internal("audio/wing.wav"));
+        wing = Gdx.audio.newSound(Gdx.files.internal("assets/audio/wing.wav"));
     }
 
     public void update(float deltaTime){

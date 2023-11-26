@@ -16,8 +16,8 @@ public class Tube {
     private Random random;
     private Rectangle boundsTop, boundsBot;
     public Tube(float x){
-        topTube = new Texture("sprites/topTube.png");
-        botTube = new Texture("sprites/botTube.png");
+        topTube = new Texture("assets/sprites/topTube.png");
+        botTube = new Texture("assets/sprites/botTube.png");
         random = new Random();
 
         positionTopTube = new Vector2(x, random.nextInt(FLUCTUATION) + TUBE_GAP + LOWEST_OPENING);
